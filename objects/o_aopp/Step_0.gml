@@ -12,29 +12,34 @@ if (enter && string_char_at(log, string_length(log)) != " " && string_char_at(lo
 	keyboard_string = "";
 }
 
-if (string_length(log) == string_length(output)*string_length(log)) {keyboard_string += "\n";}
-if (keyboard_check_pressed(vk_f3)) {output += "A";}
-if (keyboard_check_pressed(vk_f4)) {output = "1";}
+
+//if (string_length(log) == string_length(output)*string_length(log)) {keyboard_string += "\n";}
+//if (keyboard_check_pressed(vk_f3)) {output += "A";}
+//if (keyboard_check_pressed(vk_f4)) {output = "1";}
 
 #region FUNCTIONS
 //PRINT FUNCTION
-var print = function() 
+var print = function()
 {
-	var _func, _do
-	_func = function() 
+	var _func = function() 
 	{
 		//this get the text after the "print" function
 		//7 is for get the text after the function
 		if (string_byte_at(log, 7)) {FUNC = string_copy(keyboard_string, 7, 
 			string_length(keyboard_string));}
 	}
-	_do = function() 
+	var _do = function() 
 	{
-		if (enter) {array_insert(console_logs, array_length(console_logs), FUNC);}
+		array_insert(console_logs, array_length(console_logs), FUNC);
 	}
-	create_command("print", _func(), _do());
+	//Make function
+	_func();
+	if (enter) {_do();}
 }
 
-//Call the functions
-print();
+//Call the functions if somthing
+if (log == "print " + string_copy(keyboard_string, 7, string_length(keyboard_string)))
+{
+	print();
+}
 #endregion

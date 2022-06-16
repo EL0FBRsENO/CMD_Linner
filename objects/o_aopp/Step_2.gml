@@ -1,5 +1,5 @@
 /// @description keyboard sound effect
-if (log != keyboard_string) 
+if (log != keyboard_string && !keyboard_check_pressed(vk_enter)) 
 {
 	audio_play_sound(sd_key_press, 1, false);
 	log = keyboard_string;

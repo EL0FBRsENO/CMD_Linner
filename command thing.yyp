@@ -2,9 +2,10 @@
   "resources": [
     {"id":{"name":"fn_roboto","path":"fonts/fn_roboto/fn_roboto.yy",},"order":0,},
     {"id":{"name":"sd_key_press","path":"sounds/sd_key_press/sd_key_press.yy",},"order":0,},
-    {"id":{"name":"create_command","path":"scripts/create_command/create_command.yy",},"order":0,},
+    {"id":{"name":"fn_roboto_big","path":"fonts/fn_roboto_big/fn_roboto_big.yy",},"order":1,},
     {"id":{"name":"o_aopp","path":"objects/o_aopp/o_aopp.yy",},"order":0,},
     {"id":{"name":"sd_key_releas","path":"sounds/sd_key_releas/sd_key_releas.yy",},"order":1,},
+    {"id":{"name":"o_main","path":"objects/o_main/o_main.yy",},"order":1,},
     {"id":{"name":"rm1","path":"rooms/rm1/rm1.yy",},"order":0,},
   ],
   "Options": [
