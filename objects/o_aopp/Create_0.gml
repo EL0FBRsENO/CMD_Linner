@@ -5,5 +5,5 @@ t = 1;
 
 alarm[0] = 30;
 
-FUNC = "";
-output = "this is output";
+func = "";
+output = "";

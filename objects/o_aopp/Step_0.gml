@@ -32,19 +32,19 @@ var print = function()
 		if (string_length(log) > 6) 
 		{
 			//7 is for get the text after the function
-			FUNC = string_copy(log, 7, string_length(log));
+			func = string_copy(log, 7, string_length(log));
 			//Show what this function will do
-			output = FUNC;
+			output = func;
 		}
 		else {output = "";}		//put the output back to normal
 	}
 	//What the function will do after pressing enter
 	var _do = function() 
 	{
-		//Verify if what you're digitting is print (anything you want)
-		if (log == "print " + string(FUNC))
+		//Verify if what you're typing is print (anything you want)
+		if (log == "print " + string(func))
 		{
-			array_insert(console_logs, array_length(console_logs), FUNC);
+			array_insert(console_logs, array_length(console_logs), func);
 		}
 	}
 	
