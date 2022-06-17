@@ -2,10 +2,10 @@ enter = keyboard_check_pressed(vk_enter);
 
 if (keyboard_check(vk_anykey)) {s = "*";}
 
+//send the log to the console
 if (enter && string_char_at(log, string_length(log)) != " " && string_char_at(log, 
 	string_length(log)) != "")
-{
-	//string_insert("\n", keyboard_string, string_length(keyboard_string));
+	{
 	var i = array_length(console_logs)+1;
 	i--;
 	array_insert(console_logs, i, log);
@@ -13,33 +13,46 @@ if (enter && string_char_at(log, string_length(log)) != " " && string_char_at(lo
 }
 
 
-//if (string_length(log) == string_length(output)*string_length(log)) {keyboard_string += "\n";}
-//if (keyboard_check_pressed(vk_f3)) {output += "A";}
-//if (keyboard_check_pressed(vk_f4)) {output = "1";}
+//If the log is to big, go to a new line
+if (string_length(log) == 120*t) 
+{
+	keyboard_string += "\n";
+	t++;
+}
+if (keyboard_check_pressed(vk_f3)) {output += "A";}		//some test
 
 #region FUNCTIONS
 //PRINT FUNCTION
 var print = function()
 {
-	var _func = function() 
+	//What the function will do before pressing enter
+	var _func = function()
 	{
 		//this get the text after the "print" function
-		//7 is for get the text after the function
-		if (string_byte_at(log, 7)) {FUNC = string_copy(keyboard_string, 7, 
-			string_length(keyboard_string));}
+		if (string_length(log) > 6) 
+		{
+			//7 is for get the text after the function
+			FUNC = string_copy(log, 7, string_length(log));
+			//Show what this function will do
+			output = FUNC;
+		}
+		else {output = "";}		//put the output back to normal
 	}
+	//What the function will do after pressing enter
 	var _do = function() 
 	{
-		array_insert(console_logs, array_length(console_logs), FUNC);
+		//Verify if what you're digitting is print (anything you want)
+		if (log == "print " + string(FUNC))
+		{
+			array_insert(console_logs, array_length(console_logs), FUNC);
+		}
 	}
-	//Make function
+	
+	//Make all the things work
 	_func();
 	if (enter) {_do();}
 }
 
-//Call the functions if somthing
-if (log == "print " + string_copy(keyboard_string, 7, string_length(keyboard_string)))
-{
-	print();
-}
+//Call the functions
+print();
 #endregion
