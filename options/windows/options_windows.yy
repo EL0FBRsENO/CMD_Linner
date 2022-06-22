@@ -1,6 +1,6 @@
 {
   "option_windows_display_name": "CMD Linner",
-  "option_windows_executable_name": "cmdl_terminal_app.exe",
+  "option_windows_executable_name": "cmdl_terminal.exe",
   "option_windows_version": "0.0.1.101",
   "option_windows_company_info": "EL0FBRENO",
   "option_windows_product_info": "Terminal created with GameMaker Studio 2",
